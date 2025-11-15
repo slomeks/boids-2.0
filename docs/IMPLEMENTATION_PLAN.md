@@ -4,7 +4,7 @@ Simple task checklist for boids flocking simulation project.
 
 ---
 
-## PHASE 1: Project Setup (7 tasks)
+## PHASE 1: Project Setup
 
 - ✓ Initialize npm project with package.json and TypeScript config
 - ✓ Install core dependencies (p5, tweakpane, typescript, vite)
@@ -16,26 +16,23 @@ Simple task checklist for boids flocking simulation project.
 
 ---
 
-## PHASE 2: Core Simulation (14 tasks)
+## PHASE 2: Core Simulation
 
-- ☐ Implement src/boids/utils.ts with unit tests (tests/boids/utils.test.ts)
-- ☐ Implement src/boids/Boid.ts with unit tests (tests/boids/Boid.test.ts)
-- ☐ Add separation rule to Boid (separation method)
-- ☐ Add alignment rule to Boid (alignment method)
-- ☐ Add cohesion rule to Boid (cohesion method)
+- ✓ Implement src/boids/Boid.ts (without unit tests; visual testing in Phase 2)
+- ✓ Add separation, alignment, cohesion rules to Boid
 - ☐ Implement src/boids/Simulation.ts with unit tests (tests/boids/Simulation.test.ts)
 - ☐ Add screen wrapping logic to Simulation
 - ☐ Implement src/renderer/CanvasRenderer.ts (setup, draw, drawBoid)
 - ☐ Create src/index.ts entry point (p5.js sketch setup)
 - ☐ Wire Simulation and CanvasRenderer together in index.ts
-- ☐ Test P0: Verify boids render, move, and exhibit flocking behavior
+- ☐ Test P0: Visual verify boids render, move, and exhibit flocking behavior
 - ☐ Test P0: Verify screen wrapping and 60fps animation
 - ☐ Run npm run type-check and fix any TypeScript errors
 - ☐ Run npm run lint and npm run format
 
 ---
 
-## PHASE 3: Interactivity (9 tasks)
+## PHASE 3: Interactivity
 
 - ☐ Implement src/ui/ControlPanel.ts (Tweakpane initialization and folders)
 - ☐ Add separation_force slider (range: 0-5, default: 1.5)
@@ -49,7 +46,7 @@ Simple task checklist for boids flocking simulation project.
 
 ---
 
-## PHASE 4: Enhancements (3 optional tasks)
+## PHASE 4: Enhancements
 
 - ☐ Implement mouse interaction (predator/goal following)
 - ☐ Implement quadtree for neighbor detection optimization
@@ -57,7 +54,7 @@ Simple task checklist for boids flocking simulation project.
 
 ---
 
-## PHASE 5: Deployment (5 tasks)
+## PHASE 5: Deployment
 
 - ☐ Create README.md with project overview, setup, and usage guide
 - ☐ Manual testing (verify all features in browser)
@@ -66,5 +63,3 @@ Simple task checklist for boids flocking simulation project.
 - ☐ Deploy to GitHub Pages, Vercel, or Netlify
 
 ---
-
-**Total Tasks**: 41 | **Completed**: 7 | **Remaining**: 34
