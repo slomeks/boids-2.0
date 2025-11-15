@@ -20,8 +20,8 @@ Simple task checklist for boids flocking simulation project.
 
 - ✓ Implement src/boids/Boid.ts (without unit tests; visual testing in Phase 2)
 - ✓ Add separation, alignment, cohesion rules to Boid
-- ☐ Implement src/boids/Simulation.ts with unit tests (tests/boids/Simulation.test.ts)
-- ☐ Add screen wrapping logic to Simulation
+- ✓ Implement src/boids/Simulation.ts with unit tests (tests/boids/Simulation.test.ts)
+- ✓ Add screen wrapping logic to Simulation
 - ☐ Implement src/renderer/CanvasRenderer.ts (setup, draw, drawBoid)
 - ☐ Create src/index.ts entry point (p5.js sketch setup)
 - ☐ Wire Simulation and CanvasRenderer together in index.ts

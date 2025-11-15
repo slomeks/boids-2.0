@@ -1,31 +1,58 @@
 import p5 from 'p5';
+import { Simulation } from './boids/Simulation';
+import { CanvasRenderer } from './renderer/CanvasRenderer';
+import { Boid } from './boids/Boid';
 
-// This is a simple sketch to verify everything is set up correctly
+// Canvas dimensions
+const WIDTH = 950;
+const HEIGHT = 1500;
+
+// Initial simulation parameters
+const INITIAL_BOID_COUNT = 20;
+const PERCEPTION_RADIUS = 100;
+
+// Initialize simulation and renderer
+let simulation: Simulation;
+let renderer: CanvasRenderer;
+
+/**
+ * p5.js sketch definition
+ * This is the main entry point that sets up the animation loop
+ */
 const sketch = (p: p5) => {
-  p.setup = () => {
-    // Create a canvas that fills the window
-    p.createCanvas(p.windowWidth, p.windowHeight);
+  p.setup = function () {
+    // Create simulation
+    simulation = new Simulation(WIDTH, HEIGHT);
+    simulation.perception_radius = PERCEPTION_RADIUS;
+
+    // Create renderer
+    renderer = new CanvasRenderer(p);
+    renderer.setup(WIDTH, HEIGHT);
+
+    // Add initial boids
+    for (let i = 0; i < INITIAL_BOID_COUNT; i++) {
+      const x = p.random(WIDTH);
+      const y = p.random(HEIGHT);
+      simulation.addBoid(new Boid(x, y));
+    }
   };
 
-  p.draw = () => {
-    // Light blue background
-    p.background(135, 206, 235);
+  p.draw = function () {
+    // Update simulation (apply forces, update positions)
+    simulation.update();
 
-    // Draw some text to verify it's working
-    p.fill(0);
-    p.textSize(32);
-    p.textAlign(p.CENTER, p.CENTER);
-    p.text('Boids Simulation', p.width / 2, p.height / 2 - 40);
-
-    p.textSize(16);
-    p.text('Setup complete! Ready to build the simulation.', p.width / 2, p.height / 2 + 20);
+    // Render the frame
+    renderer.draw(simulation);
   };
 
-  // Handle window resizing
-  p.windowResized = () => {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
+  /**
+   * Disable window resizing - keep canvas fixed at 1000x600
+   * (Returning false prevents p5 from handling resize)
+   */
+  p.windowResized = function () {
+    return false;
   };
 };
 
-// Create the p5 instance
+// Create p5 instance
 new p5(sketch);
