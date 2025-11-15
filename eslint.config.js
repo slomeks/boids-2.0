@@ -1,8 +1,12 @@
 import js from '@eslint/js';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
-  js.configs.recommended,
   {
+    ignores: ['dist', 'node_modules', 'coverage', '**/*.d.ts'],
+  },
+  {
+    files: ['src/**/*.js', 'tests/**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -10,7 +14,24 @@ export default [
         console: 'readonly',
         process: 'readonly',
         Buffer: 'readonly',
-        // p5.js globals
+      },
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    },
+  },
+  {
+    files: ['src/**/*.ts', 'tests/**/*.ts'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      parser: tsParser,
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
+        // Jest globals
         describe: 'readonly',
         it: 'readonly',
         expect: 'readonly',
@@ -19,7 +40,8 @@ export default [
       },
     },
     rules: {
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      ...js.configs.recommended.rules,
+      'no-unused-vars': 'off',
     },
   },
 ];
