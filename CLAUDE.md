@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Cooperation rules
+Please follow below rules while working on the project unless explicitely asked to do otherwise.
+We follow steps as defined in docs/IMPLEMENTATION_PLAN.md.
+* NEVER run any git commands yourself. Always provide the user with the commands to run.
+* ALWAYS provide explanations for any code changes you suggest.
+* NEVER write code into files by yourself. Always provide the user with the code to add or change.
+* Remember: the main goal of the project is to educate the user about web development best practices and patterns.
+
 ## Project Overview
 
 **Boids-2.0** is a web-based, interactive simulation of the boids flocking algorithm. It's a learning-focused project designed to visualize how complex emergent behavior (like bird flocking) arises from simple vector-based rules applied individually to each boid.
@@ -14,7 +22,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-The project uses npm for package management and build tooling. Add these to `package.json` scripts once setup is complete:
+The project uses npm for package management and build tooling.
 
 ```bash
 # Installation & Setup
@@ -36,6 +44,21 @@ npm run type-check           # Run TypeScript type checking
 npm test -- <test-file-path> # Run a specific test file
 npm test -- --testNamePattern="<pattern>"  # Run tests matching pattern
 ```
+
+### Automatic Quality Checks
+
+**Pre-commit hooks (via Husky):**
+- Automatically runs `npm run type-check` and `npx lint-staged` before each commit
+- Prevents broken code from entering the repository
+- Auto-fixes formatting and linting issues where possible
+
+**CI/CD Pipeline (GitHub Actions):**
+- Runs on every push and pull request
+- Executes: type-check → lint → tests → build
+- Tests against Node 18.x and 20.x for compatibility
+- Blocks merging if any check fails
+
+**Important:** Always commit `package-lock.json` to maintain consistent dependency versions across environments.
 
 ## Architecture & Core Concepts
 
@@ -131,7 +154,17 @@ When determining neighbors, only consider boids within `perception_radius`. This
 
 ## Testing Strategy
 
-- Unit tests for vector math utilities
-- Integration tests for individual boid behavior
+**Tests are written as part of implementation, not after.** Each major component gets:
+
+- **Unit tests** for vector math utilities (`tests/boids/utils.test.ts`)
+- **Unit tests** for individual boid behavior (`tests/boids/Boid.test.ts`)
+- **Unit tests** for simulation engine (`tests/boids/Simulation.test.ts`)
+- **Edge cases & mathematical properties** (e.g., normalized vectors have magnitude 1)
+- **Integration tests** verifying components work together
+
+**Additional testing:**
 - Visual regression testing (compare canvas output) is optional but helpful
 - Manual testing is important: adjust sliders and verify behavior matches expectations
+- CI/CD automatically runs all tests on every push/PR
+
+**Key principle:** Tests catch bugs early, provide documentation, and ensure refactoring doesn't break behavior.
