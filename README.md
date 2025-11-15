@@ -45,7 +45,7 @@ Boids (bird-oid objects) simulate flocking behavior through three simple rules a
 Boids steer to avoid crowding local flockmates.
 
 **Formula:**
-$$\vec{s}_{sep} = w_{sep} \cdot \text{limit}\left(\text{limit}\left(\text{normalize}\left(\frac{1}{|N|}\sum_{j \in N} \text{normalize}(\vec{p}_i - \vec{p}_j) \cdot \frac{1}{d_{ij}}\right) \cdot v_{max} - \vec{v}_i, a_{max}\right), f_{max}\right)$$
+$$ \vec{s}_{sep} = w_{sep} \cdot \text{limit}\left(\text{limit}\left(\text{normalize}\left(\frac{1}{|N|}\sum_{j \in N} \text{normalize}(\vec{p}_i - \vec{p}_j) \cdot \frac{1}{d_{ij}}\right) \cdot v_{max} - \vec{v}_i, a_{max}\right), f_{max}\right) $$
 
 **Explanation:**
 - For each neighbor within perception radius, calculate a vector pointing **away from** them
