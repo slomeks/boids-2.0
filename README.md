@@ -66,7 +66,10 @@ $$
 Boids steer towards the average heading of local flockmates.
 
 **Formula:**
-$$\vec{s}_{align} = w_{align} \cdot \text{limit}\left(\text{normalize}\left(\frac{1}{|N|}\sum_{j \in N} \vec{v}_j\right) \cdot v_{max} - \vec{v}_i, a_{max}\right)$$
+
+$$
+\vec{s}_{align} = w_{align} \cdot \text{limit}\left(\text{normalize}\left(\frac{1}{|N|}\sum_{j \in N} \vec{v}_j\right) \cdot v_{max} - \vec{v}_i, a_{max}\right)
+$$
 
 **Explanation:**
 - Calculate the **average velocity** of all neighbors
@@ -83,7 +86,10 @@ $$\vec{s}_{align} = w_{align} \cdot \text{limit}\left(\text{normalize}\left(\fra
 Boids steer to move toward the average location of local flockmates.
 
 **Formula:**
-$$\vec{s}_{cohesion} = w_{cohesion} \cdot \text{limit}\left(\text{normalize}\left(\frac{1}{|N|}\sum_{j \in N} \vec{p}_j - \vec{p}_i\right) \cdot v_{max} - \vec{v}_i, a_{max}\right)$$
+
+$$
+\vec{s}_{cohesion} = w_{cohesion} \cdot \text{limit}\left(\text{normalize}\left(\frac{1}{|N|}\sum_{j \in N} \vec{p}_j - \vec{p}_i\right) \cdot v_{max} - \vec{v}_i, a_{max}\right)
+$$
 
 **Explanation:**
 - Calculate the **center of mass** of all neighbors
