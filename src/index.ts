@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import p5 from 'p5';
 import { Simulation } from './boids/Simulation';
 import { CanvasRenderer } from './renderer/CanvasRenderer';

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import * as Tweakpane from 'tweakpane';
 import { Simulation } from '../boids/Simulation';
 import { Boid } from '../boids/Boid';
