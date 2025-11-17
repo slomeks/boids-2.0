@@ -3,32 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boids Flocking Simulation</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html, body {
-        width: 100%;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-          'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-          'Helvetica Neue', sans-serif;
-        background: #ffffff;
-      }
-      #canvas-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      canvas {
-        display: block;
-      }
-    </style>
+    <title>Boids Flocking Simulation - Interactive Emergence</title>
+    <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body>
-    <div id="canvas-container"></div>
+    <main class="app-container">
+      <!-- Canvas Section - Left side on desktop, top on mobile -->
+      <section class="canvas-section">
+        <div id="canvas-container"></div>
+      </section>
+
+      <!-- Controls Section - Right sidebar on desktop, bottom on mobile -->
+      <aside class="controls-section">
+        <!-- Tweakpane control panel will be injected here -->
+        <div id="control-panel"></div>
+
+        <!-- About/Info Panel - Collapsible (content injected by AboutPanel.ts) -->
+        <div id="about-panel">
+          <button class="about-toggle collapsed" aria-expanded="false">
+            About This Project
+          </button>
+          <div class="about-content collapsed"></div>
+        </div>
+      </aside>
+    </main>
+
     <script type="module" src="./src/index.ts"></script>
   </body>
 </html>

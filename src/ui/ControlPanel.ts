@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import * as Tweakpane from 'tweakpane';
 import { Simulation } from '../boids/Simulation';
 import { Boid } from '../boids/Boid';
@@ -15,15 +16,20 @@ export class ControlPanel {
     cohesion_force: 1.0,
     perception_radius: 100,
     max_speed: 4,
-    boid_count: 20,
+    boid_count: 50,
   };
 
   constructor(simulation: Simulation, p: p5) {
     this.simulation = simulation;
     this.p = p;
 
-    // Create the Tweakpane instance
-    this.pane = new Tweakpane.Pane();
+    // Create the Tweakpane instance embedded in the control panel container
+    const container = document.getElementById('control-panel');
+    this.pane = new Tweakpane.Pane({
+      container: container || undefined,
+      title: 'Simulation Controls',
+    }) as any;
+
     this.setupControls();
   }
 
