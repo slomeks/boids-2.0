@@ -2,6 +2,7 @@ import p5 from 'p5';
 import { Simulation } from './boids/Simulation';
 import { CanvasRenderer } from './renderer/CanvasRenderer';
 import { Boid } from './boids/Boid';
+import { ControlPanel } from './ui/ControlPanel';
 
 // Canvas dimensions
 const WIDTH = 950;
@@ -35,6 +36,9 @@ const sketch = (p: p5) => {
       const y = p.random(HEIGHT);
       simulation.addBoid(new Boid(x, y));
     }
+
+    // Create control panel for real-time parameter adjustment
+    new ControlPanel(simulation, p);
   };
 
   p.draw = function () {
