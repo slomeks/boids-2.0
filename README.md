@@ -1,6 +1,11 @@
 # Boids-2.0: Interactive Flocking Simulation
 
 A web-based, interactive simulation of **boids flocking behavior** built with TypeScript, p5.js, and Tweakpane. This project demonstrates how complex emergent behavior (like bird flocking) arises from simple vector-based rules applied individually to each boid.
+## 🚀 Live Demo
+
+**View the simulation live:** https://slomeks.github.io/boids-2.0/
+
+The project is automatically deployed to GitHub Pages on every push to `master`. No manual deployment needed!
 
 ## Features
 
