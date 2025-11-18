@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boids Flocking Simulation - Interactive Emergence</title>
+    <script type="module" crossorigin src="/boids-2.0/assets/index-BS6v5TEO.js"></script>
+    <link rel="stylesheet" crossorigin href="/boids-2.0/assets/index-CfhSUID5.css">
+  </head>
+  <body>
+    <main class="app-container">
+      <!-- Canvas Section - Left side on desktop, top on mobile -->
+      <section class="canvas-section">
+        <div id="canvas-container"></div>
+      </section>
+
+      <!-- Controls Section - Right sidebar on desktop, bottom on mobile -->
+      <aside class="controls-section">
+        <!-- Tweakpane control panel will be injected here -->
+        <div id="control-panel"></div>
+
+        <!-- About/Info Panel - Collapsible (content injected by AboutPanel.ts) -->
+        <div id="about-panel">
+          <button class="about-toggle collapsed" aria-expanded="false">
+            About This Project
+          </button>
+          <div class="about-content collapsed"></div>
+        </div>
+      </aside>
+    </main>
+
+  </body>
+</html>
