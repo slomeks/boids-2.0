@@ -56,10 +56,10 @@ Simple task checklist for boids flocking simulation project.
 
 ## PHASE 5: Deployment
 
-- ☐ Create README.md with project overview, setup, and usage guide
-- ☐ Manual testing (verify all features in browser)
-- ☐ Performance testing (test with 100, 250, 500, 1000 boids)
-- ☐ Production build: npm run build
-- ☐ Deploy to GitHub Pages, Vercel, or Netlify
+- ✓ Create README.md with project overview, setup, and usage guide
+- ✓ Manual testing (verify all features in browser)
+- ✓ Performance testing (test with 100, 250, 500, 1000 boids)
+- ✓ Production build: npm run build
+- ✓ Deploy to GitHub Pages, Vercel, or Netlify
 
 ---
